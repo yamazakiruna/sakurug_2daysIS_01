@@ -7,4 +7,3 @@ CREATE TABLE todo_items (
     done_flg NUMERIC(1) DEFAULT 0,
     time_limit DATE
 );
-ALTER TABLE todo_items OWNER TO todo_user;
