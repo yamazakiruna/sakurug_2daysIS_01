@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.todo.app.entity.Todo;
@@ -26,7 +22,7 @@ public class TodoController {
      * @param model
      * @return
      */
-    @GetMapping("/")
+    @RequestMapping("/")
     public String index(Model model) {
     	// 全件表示
 //       List<Todo> list = todoMapper.selectAll();
@@ -44,7 +40,7 @@ public class TodoController {
      * @param todo
      * @return
      */
-    @PostMapping("/add")
+    @RequestMapping("/add")
     public String add(Todo todo) {
     	todoMapper.add(todo);
     	return "redirect:/";
@@ -55,7 +51,7 @@ public class TodoController {
      * @param todo
      * @return
      */
-    @PatchMapping("/update")
+    @RequestMapping("/update")
     public String update(Todo todo) {
     	todoMapper.update(todo);
     	return "redirect:/";
@@ -65,7 +61,7 @@ public class TodoController {
      * 課題削除（一括）
      * @return なし
      */
-    @DeleteMapping("/delete")
+    @RequestMapping("/delete")
     public String delete() {
     	todoMapper.delete();
     	return "redirect:/";
